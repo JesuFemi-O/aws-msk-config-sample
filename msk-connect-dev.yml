@@ -381,7 +381,7 @@ Resources:
       Name: msk-connect-blog-configuration
       KafkaVersionsList: ["2.6.2"]
       ServerProperties: !Sub |
-        auto.create.topics.enable=true      
+        auto.create.topics.enable=true
   MSKCluster:
     DependsOn: MskConfiguration
     Type: AWS::MSK::Cluster
