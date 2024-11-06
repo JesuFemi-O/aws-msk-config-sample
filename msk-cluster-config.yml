@@ -6,7 +6,7 @@ Resources:
     Type: AWS::MSK::Configuration
     Properties: 
       Name: "KafkaConfiguration-2-6-2"
-      KafkaVersions: ["2.6.2"]
+      KafkaVersionsList: ["2.6.2"]
       Description: "MSK cluster configuration for Kafka 2.6.2 with custom settings."
       ServerProperties: !Sub |
         auto.create.topics.enable=true
