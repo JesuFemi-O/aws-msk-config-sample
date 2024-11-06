@@ -336,7 +336,7 @@ Resources:
     Type: AWS::RDS::DBParameterGroup
     Properties:
       Description: MSK Blog DB parameter group
-      Family: aurora-mysql5.7
+      Family: aurora-mysql8.0
       Parameters:
         max_connections: 300    
   AuroraDBClusterParameterGroup:
@@ -344,7 +344,7 @@ Resources:
     Type: AWS::RDS::DBClusterParameterGroup
     Properties:
       Description: 'CloudFormation Sample Aurora Cluster Parameter Group'
-      Family: aurora-mysql5.7
+      Family: aurora-mysql8.0
       Parameters:
         time_zone: US/Eastern
         binlog_format: ROW
