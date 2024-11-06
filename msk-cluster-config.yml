@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'CloudFormation template to create an MSK Cluster configuration for Kafka version 2.6.2.'
+
+Resources:
+  MSKClusterConfiguration:
+    Type: AWS::MSK::Configuration
+    Properties: 
+      Name: "KafkaConfiguration-2-6-2"
+      KafkaVersions: ["2.6.2"]
+      Description: "MSK cluster configuration for Kafka 2.6.2 with custom settings."
+      ServerProperties: !Sub |
+        auto.create.topics.enable=true
+        default.replication.factor=3
+        min.insync.replicas=2
+        num.io.threads=8
+        num.network.threads=5
+        num.partitions=1
+        num.replica.fetchers=2
+        replica.lag.time.max.ms=30000
+        socket.receive.buffer.bytes=102400
+        socket.request.max.bytes=104857600
+        socket.send.buffer.bytes=102400
+        unclean.leader.election.enable=true
+
+Outputs:
+  MSKClusterConfigurationArn:
+    Description: "ARN of the MSK Cluster Configuration."
+    Value: !Ref MSKClusterConfiguration
